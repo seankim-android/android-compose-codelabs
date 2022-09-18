@@ -64,7 +64,7 @@ fun SearchBar(
     modifier = modifier
       .fillMaxWidth()
       .heightIn(min = 56.dp),
-    placeholder = { stringResource(id = R.string.placeholder_search) },
+    placeholder = { Text(stringResource(id = R.string.placeholder_search)) },
     colors = TextFieldDefaults.textFieldColors(backgroundColor = MaterialTheme.colors.surface),
     leadingIcon = {
       Icon(
@@ -243,7 +243,11 @@ private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
 // Step: MySoothe App - Scaffold
 @Composable
 fun MySootheApp() {
-  SearchBar(Modifier.padding(8.dp))
+  Scaffold(
+    bottomBar = { SootheBottomNavigation() }
+  ) {
+    HomeScreen(Modifier.padding(it))
+  }
 }
 
 private val alignYourBodyData = listOf(
